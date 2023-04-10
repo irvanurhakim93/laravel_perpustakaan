@@ -7,3 +7,4 @@
         <li>Mendownload data buku ke dalam bentuk <b>PDF</b> atau <b>XLS</b>
     </li>
  <br>
+        <p>Untuk database dummy telah disertakan pada folder <b>/database</b>
