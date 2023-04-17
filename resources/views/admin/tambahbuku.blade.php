@@ -7,18 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Halaman Tambah Buku</title>
   <!-- plugins:css -->
-  <link rel="stylesheet" href="../../vendors/feather/feather.css">
-  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{{asset('vendors/feather/feather.css')}}">
+  <link rel="stylesheet" href="{{asset('vendors/ti-icons/css/themify-icons.css')}}">
+  <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.base.css')}}">
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="../../vendors/select2/select2.min.css">
-  <link rel="stylesheet" href="../../vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+  <link rel="stylesheet" href="{{asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
+  <link rel="stylesheet" href="{{asset('vendors/ti-icons/css/themify-icons.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('js/select.dataTables.min.css')}}">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
-  <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="{{asset('css/vertical-layout-light/style.css')}}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="../../images/favicon.png" />
+  <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" />
+  <script src="{{asset('js/chart.js')}}"></script>
 </head>
 
 <body>
@@ -340,16 +343,31 @@
                       <input type="text" class="form-control" id="tahunterbit" name="tahunterbit" placeholder="Tahun Terbit" required>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword4">ID Penulis</label>
-                      <input type="text" class="form-control" id="idpenulis" name="idpenulis" placeholder="ID Penulis" required>
+                      <label for="exampleInputPassword4">Penulis</label>
+                      <select class="form-control" id="pilihpenulis" name="pilihpenulis">
+                        <option value="" disabled selected>Pilih Penulis</option>
+                        @foreach ($penulis as $data)
+                        <option value="{{$data->id}}">{{$data->nama}}</option>
+                        @endforeach
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword4">ID Penerbit</label>
-                      <input type="text" class="form-control" id="idpenerbit" name="idpenerbit" placeholder="ID Penerbit" required>
+                      <label for="exampleInputPassword4">Penerbit</label>
+                      <select class="form-control" id="pilihpenerbit" name="pilihpenerbit">
+                        <option value="" disabled selected>Pilih Penerbit</option>
+                        @foreach ($penerbit as $data)
+                        <option value="{{$data->id}}">{{$data->nama}}</option>
+                        @endforeach
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword4">ID Kategori</label>
-                      <input type="text" class="form-control" id="idkategori" name="idkategori" placeholder="ID Kategori" required>
+                      <label for="exampleInputPassword4">Kategori</label>
+                      <select class="form-control" id="pilihkategori" name="pilihkategori">
+                        <option value="" disabled selected>Pilih Kategori</option>
+                        @foreach ($kategori as $data)                            
+                        <option value="{{$data->id}}">{{$data->nama}}</option>
+                        @endforeach
+                      </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleTextarea1">Sinopsis</label>

@@ -341,32 +341,37 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword4">ID Penulis</label>
-                      <input type="text" class="form-control" id="idpenulis" name="idpenulis" value="{{$data->id_penulis}}" required>
+                      <select class="form-control" id="pilihpenulis" name="pilihpenulis">
+                        <option value="" disabled selected>Pilih Penulis</option>
+                        @foreach ($penulis as $data)                            
+                        <option value="{{$data->id}}">{{$data->nama}}</option>
+                        @endforeach
+                      </select>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword4">ID Penerbit</label>
-                      <input type="text" class="form-control" id="idpenerbit" name="idpenerbit" value="{{$data->id_penerbit}}" required>
+                      <select class="form-control" id="pilihpenerbit" name="pilihpenerbit">
+                        <option value="" disabled selected>Pilih Penerbit</option>
+                        @foreach ($penerbit as $data)                            
+                        <option value="{{$data->id}}">{{$data->nama}}</option>
+                        @endforeach
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword4">ID Kategori</label>
-                      <input type="text" class="form-control" id="idkategori" name="idkategori" value="{{$data->id_kategori}}" required>
+                      <label for="">Pilih Kategori</label>
+                      <select class="form-control" id="pilihkategori" name="pilihkategori">
+                        <option value="" disabled selected>Pilih Kategori</option>
+                        @foreach ($kategori as $data)
+                        <option value="{{$data->id}}">{{$data->nama}}</option>
+                        @endforeach
+                      </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleTextarea1">Sinopsis</label>
                         <textarea class="form-control" id="sinopsis" name="sinopsis" value="{{$data->sinopsis}}" rows="4" required></textarea>
                       </div>
-                    {{-- <div class="form-group">
-                      <label>Sampul</label>
-                      <input type="file" name="sampulbuku" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
-                      </div>
-                    </div> --}}
-
                     <div class="form-group">
+                      <label for="">Upload Sampul</label>
                       <input type="file" name="sampulbuku" class="form-control" accept="foto_sampul/*" id="sampulbuku">
                     </div>
                     <button type="submit" class="btn btn-success mr-2">Submit</button>

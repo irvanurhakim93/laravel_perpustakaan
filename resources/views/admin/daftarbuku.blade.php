@@ -329,6 +329,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Daftar Buku</h4>
                     <a href="{{route('admin.tambahbuku')}}" class="btn btn-success">Tambah Buku</a>
+                    <a href="{{route('admin.downloadbukuexcel')}}" class="btn btn-success">Download Sebagai XLS</a>
                     <a href="{{route('admin.kategoribuku')}}" class="btn btn-primary">Kategori Buku</a>
                     <a href="{{route('penulis.index')}}" class="btn btn-warning">Daftar Penulis</a>
                     <a href="{{route('penerbit.index')}}" class="btn btn-info">Daftar Penerbit</a>
@@ -379,13 +380,13 @@
                               {{$bl->tahun_terbit}}
                             </td>
                             <td>
-                              {{$bl->id_penulis}}
+                              {{$bl->penulis->namaPenulis()}}
                             </td>
                             <td>
-                              {{$bl->id_penerbit}}
+                              {{$bl->penerbit->penerbit()}}
                             </td>
                             <td>
-                              {{$bl->id_kategori}}
+                              {{$bl->kategori->kategori()}}
                             </td>
                             <td>
                               {{$bl->sinopsis}}
@@ -399,13 +400,17 @@
                               @method('DELETE')
                               <button type="submit" onclick="return confirm('Apakah yakin anda akan menghapus buku ini ?');" class="btn btn-danger">Hapus</button>
                               </form></td>
-                              <td><a href="{{route('admin.downloadbuku',$bl->id)}}" class="btn btn-warning">Download sebagai PDF</a></td>
-                              <td><a href="{{route('admin.downloadbukuexcel',$bl->id)}}" class="btn btn-success">Download sebagai XLS</a></td>
+                              <td><a href="{{route('admin.downloadbuku',$bl->id)}}" class="btn btn-warning">Download sebagai PDF</a></td>                       
                           </tr>
                         </tbody>
                         @endforeach
                       </table>
                     </div>
+                    Halaman : {{$booksList->currentPage()}}<br>
+                    Jumlah : {{$booksList->total()}}<br>
+                    Data per halaman : {{$booksList->perPage()}}<br>
+                    <br>
+                    {{$booksList->links()}}
                   </div>
                 </div>
                     <div class="col-12 col-xl-4">
