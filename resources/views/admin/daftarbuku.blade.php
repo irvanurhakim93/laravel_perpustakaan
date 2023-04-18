@@ -360,7 +360,7 @@
                               Sinopsis
                             </th>
                             <th>
-                              Berkas
+                              Sampul
                             </th>
                             <th colspan="4">
                               Aksi
@@ -392,7 +392,7 @@
                               {{$bl->sinopsis}}
                             </td>
                             <td>
-                              {{$bl->berkas}}
+                              <img src="{{$bl->gambar()}}" alt="sampul" style="width:150px; height:150px">
                             </td>
                             <td><a href="{{route('admin.editbuku',$bl->id)}}" class="btn btn-primary">Ubah</a></td>
                             <td><form action="{{route('admin.hapusbuku',$bl->id)}}" method="post">

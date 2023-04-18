@@ -44,4 +44,24 @@ class Buku extends Model
         return $listkategori;
     }
 
+    public function gambar()
+    {
+         // jika ada data dari sampul dan juga file yang di folder public images books itu ada
+        // yang sesuai dengan namanya
+        // maka kita akan memangiil file nya di dalam image book nama foto
+
+        if ($this->sampul && file_exists(public_path('images/books/' . $this->sampul))) {
+            return asset('images/books/' . $this->sampul);
+        } else {
+            return asset('images/no_image.png');
+        }
+    }
+
+    public function hapusgambar()
+    {
+        if ($this->sampul && file_exists(public_path('image/books' . $this->sampul))) {
+            return unlink('images/books' . $this->sampul);
+        }
+    }
+
 }

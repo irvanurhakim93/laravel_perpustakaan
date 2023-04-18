@@ -328,7 +328,7 @@
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Form Tambah Buku</h4>
+                  <h4 class="card-title">Form Ubah Buku</h4>
                   <form action="{{route('admin.updatebuku',$data->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -372,7 +372,7 @@
                       </div>
                     <div class="form-group">
                       <label for="">Upload Sampul</label>
-                      <input type="file" name="sampulbuku" class="form-control" accept="foto_sampul/*" id="sampulbuku">
+                      <input type="file" name="cover" class="form-control" accept="foto_sampul/*" id="cover">
                     </div>
                     <button type="submit" class="btn btn-success mr-2">Submit</button>
                   </form>

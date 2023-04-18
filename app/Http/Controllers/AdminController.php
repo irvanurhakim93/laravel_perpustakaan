@@ -83,33 +83,19 @@ class AdminController extends Controller
         $buku->id_penerbit = $request->input('pilihpenerbit');
         $buku->id_kategori = $request->input('pilihkategori');
         $buku->sinopsis = $request->input('sinopsis');
+
+        //upload foto sampul
+        if ($request->hasFile('cover')) {
+            $fotosampul = $request->file('cover');
+            $namasampul = rand(1000, 9999) . $fotosampul->getClientOriginalName();
+            $fotosampul->move('images/books', $namasampul);
+            $buku->cover = $namasampul;
+        }
         $buku->created_at = Carbon::now();
         $buku->updated_at = Carbon::now();
 
-            // //mengecek apabila filenya ada
-            // if($request->hasFile('sampulbuku')){
-            //     $file = $request->file('sampulbuku');
-            //     $extention = $file->getClientOriginalExtension();
-            //     $filename = time(). '.'.$extention;
-            //     $file->storeAs('public/foto_sampul',$filename);
-            //     return redirect()->route('admin.daftarbuku');
-            // }
         $buku->save();
         return redirect()->route('admin.daftarbuku')->with('status','Berhasil');
-
-
-
-        // if($file = $request->file('sampulbuku')){
-        //     $fileData = $this->uploads($file,'/public/foto_sampul/');
-        //     $uploading = Buku::create([
-        //         'sampul' => $fileData['fileName']
-        //     ]);
-        // }
-        // return $uploading;
-        // $buku->save();
-        // return redirect()->route('admin.daftarbuku');
-
-
     }
 
     public function editbuku($id)
@@ -130,6 +116,7 @@ class AdminController extends Controller
             'pilihpenerbit',
             'pilihkategori',
             'sinopsis',
+            'cover',
             'updated_at'
         ]);
 
@@ -140,6 +127,15 @@ class AdminController extends Controller
         $data->id_penerbit = $request->pilihpenerbit;
         $data->id_kategori = $request->pilihkategori;
         $data->sinopsis = $request->sinopsis;
+
+        //upload foto sampul
+        if ($request->hasFile('cover')) {
+        $fotosampul = $request->file('cover');
+        $namasampul = rand(1000, 9999) . $fotosampul->getClientOriginalName();
+        $fotosampul->move('images/books', $namasampul);
+        $data->sampul = $namasampul;
+        }
+
         $data->updated_at = Carbon::now();
         $data->save();
 

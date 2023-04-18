@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 18 Apr 2023 pada 06.17
+-- Waktu pembuatan: 18 Apr 2023 pada 06.55
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.0.25
 
@@ -73,11 +73,11 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id`, `nama`, `tahun_terbit`, `id_penulis`, `id_penerbit`, `id_kategori`, `sinopsis`, `sampul`, `created_at`, `updated_at`) VALUES
-(1, 'Apa aja', 2018, 2, 2, 2, 'Tentang bacaan bagi orang orang yang tidak memliki harapan hidup', 'Apa aja_Koala.jpg', '2023-04-16 19:18:24', '2023-04-16 12:18:24'),
-(2, 'Si Kancil', 2000, 3, 2, 5, 'Kancil yang hobi mencuri, kali ini pencuriannya lebih modern seperti mencuri motor sport', NULL, '2023-04-16 19:16:42', '2023-04-16 12:16:42'),
+(1, 'Apa aja', 2018, 3, 2, 2, 'Buku tentang kahlil gibran', '3824sayappatah.jpg', '2023-04-18 04:48:49', '2023-04-17 21:48:49'),
+(2, 'Si Kancil', 2000, 1, 2, 3, 'SI kancil yang hobi mencuri,namun kali ini mencurinya agak kerenan dikit seperti mencuri motor sport', '4633kancil.jpg', '2023-04-18 04:49:58', '2023-04-17 21:49:58'),
 (3, 'Buku Pemrograman HTML 5', 2018, 3, 1, 2, 'Buku pemrograman html terkini', NULL, '2023-04-17 06:15:32', '2023-04-16 23:15:32'),
-(4, 'Buku Chord Gitar', 2001, 1, 1, 2, 'Tutorial chord lagu lagu indonesia paling terbaru dan terhits pokoknya', NULL, '2023-04-09 09:39:29', '2023-04-09 02:39:29'),
-(5, 'Komik Siksa Neraka', 1990, 1, 1, 1, 'Komik yang menceritakaan siksaan kepada manusia di neraka atas perbuatan dosa selama di dunia. Dijamin siapa yang membacanya akan auto tobat', '1681022998.jpg', '2023-04-09 09:40:33', '2023-04-09 02:40:33'),
+(4, 'Buku Chord Gitar', 2001, 1, 2, 2, 'Buku tentang mengajarkan chord gitar dengan lagu - lagu indonesia terpopuler', '7139chordbuku.jpg', '2023-04-18 04:51:59', '2023-04-17 21:51:59'),
+(5, 'Komik Siksa Neraka', 1990, 3, 2, 1, 'Komik yang menceritakaan siksaan kepada manusia di neraka atas perbuatan dosa selama di dunia. Dijamin siapa yang membacanya akan auto tobat', '1440siksa_neraka.jpg', '2023-04-18 04:54:35', '2023-04-17 21:54:35'),
 (6, 'Buku Biografi Sulfikar Hartono', 2018, 3, 2, 1, 'Biografi tentang sulfikar hartono,si pembalap yang gugur pada saat acara balapan di malam takbiran', NULL, '2023-04-17 06:31:11', '2023-04-16 23:29:26'),
 (7, 'Kisah Inspiratif Jack Ma', 2020, 1, 2, 2, 'Biografi tentang pengusaha sukses Jack Ma yang mendirikan perusahaan Alibaba', NULL, '2023-04-16 23:33:28', '2023-04-16 23:33:28');
 

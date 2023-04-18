@@ -373,19 +373,9 @@
                         <label for="exampleTextarea1">Sinopsis</label>
                         <textarea class="form-control" id="sinopsis" name="sinopsis" rows="4" required></textarea>
                       </div>
-                    {{-- <div class="form-group">
-                      <label>Sampul</label>
-                      <input type="file" name="sampulbuku" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
-                      </div>
-                    </div> --}}
 
                     <div class="form-group">
-                      <input type="file" name="sampulbuku" class="form-control" accept="foto_sampul/*" id="sampulbuku">
+                      <input type="file" name="cover" class="form-control" accept="foto_sampul/*" id="cover">
                     </div>
                     <button type="submit" class="btn btn-success mr-2">Submit</button>
                   </form>
