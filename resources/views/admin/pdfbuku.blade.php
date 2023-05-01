@@ -7,7 +7,9 @@
     <title>Halaman Dokumen Buku</title>
 </head>
 <body>
-{{-- <img src="{{$data->gambar()}}" alt="" srcset="{{$data->gambar()}}" style="width: 150px; height:150px"> --}}
+{{-- <img src="{{$data->gambar()}}" alt="" style="width: 150px; height:150px"> --}}
+
+
 <br>
 <br>   
 <h2>{{$data->nama}}</h2>

@@ -53,7 +53,7 @@ class Buku extends Model
         if ($this->sampul && file_exists(public_path('images/books/' . $this->sampul))) {
             return asset('images/books/' . $this->sampul);
         } else {
-            return asset('images/no_image.png');
+            return asset('images/books/no_image.png');
         }
     }
 
