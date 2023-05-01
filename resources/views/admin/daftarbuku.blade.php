@@ -292,9 +292,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.daftarbuku')}}">
+            <a class="nav-link" data-toggle="collapse" href="{{route('admin.daftarbuku')}}" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-layout menu-icon"></i>
               <span class="menu-title">Daftar Buku</span>
+              <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
@@ -327,12 +328,34 @@
               <div class="row">
                 <div class="card">
                   <div class="card-body">
+                    <label for="">Menu Data Buku</label>                    
+                    <div class="form-inline">
+                      <a href="{{route('admin.tambahbuku')}}" class="btn btn-success">Tambah Buku</a>&nbsp;&nbsp;&nbsp;
+                      <a href="{{route('admin.downloadbukuexcel')}}" class="btn btn-success">Download Sebagai XLS</a>&nbsp;&nbsp;&nbsp;
+                      <form method="get" action="{{route('admin.filterbuku')}}">
+                        <select name="id_penulis" id="" class="form-control" style="width: 200px">
+                          <option value=""  disabled selected>Pilih Penulis</option>
+                          @foreach ($penulis as $writer)                              
+                          <option value="{{$writer->id}}">{{$writer->nama}}</option>
+                          @endforeach
+                        </select>
+                        <select name="" id="" class="form-control" style="width: 200px">
+                          <option value="" disabled selected>Pilih Penerbit</option>
+                          @foreach ($penerbit as $publisher)
+                          <option value="{{$publisher->id}}">{{$publisher->nama}}</option>
+                          @endforeach
+                        </select>
+                        <button type="submit" class="btn btn-danger" value="Filter">Filter</button>
+                      </form>
+                    </div>
+                    
+                      <br>
                     <h4 class="card-title">Daftar Buku</h4>
-                    <a href="{{route('admin.tambahbuku')}}" class="btn btn-success">Tambah Buku</a>
-                    <a href="{{route('admin.downloadbukuexcel')}}" class="btn btn-success">Download Sebagai XLS</a>
-                    <a href="{{route('admin.kategoribuku')}}" class="btn btn-primary">Kategori Buku</a>
+
+                    {{-- <a href="{{route('admin.kategoribuku')}}" class="btn btn-primary">Kategori Buku</a>
                     <a href="{{route('penulis.index')}}" class="btn btn-warning">Daftar Penulis</a>
-                    <a href="{{route('penerbit.index')}}" class="btn btn-info">Daftar Penerbit</a>
+                    <a href="{{route('penerbit.index')}}" class="btn btn-info">Daftar Penerbit</a> --}}
+ 
                     <div class="table-responsive pt-3">
                       
                       <table class="table table-bordered">
@@ -348,10 +371,10 @@
                               Tahun Terbit
                             </th>
                             <th>
-                              ID Penulis
+                              Nama Penulis
                             </th>
                             <th>
-                              ID Penerbit
+                              Nama Penerbit
                             </th>
                             <th>
                               ID Kategori

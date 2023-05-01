@@ -28,6 +28,7 @@ Route::get('/perpustakaan', [LoginController::class,'showFormLogin']);
 
 // manage admin,buku,& peminjam routes
 Route::get('/perpustakaan/admin/dashboard',[AdminController::class,'dashboard'])->name('admindashboard');
+Route::get('/perpustakaan/admin/dashboard/filterbuku',[AdminController::class,'filterBuku'])->name('admin.filterbuku');
 Route::get('/perpustakaan/admin/buku/daftarbuku',[AdminController::class,'daftarbuku'])->name('admin.daftarbuku');
 Route::get('/perpustakaan/admin/buku/tambahbuku', [AdminController::class,'tambahbuku'])->name('admin.tambahbuku');
 Route::get('/perpustakaan/admin/buku/kategoribuku', [AdminController::class,'kategoribuku'])->name('admin.kategoribuku');

@@ -60,9 +60,29 @@ class AdminController extends Controller
     }
 
     public function daftarbuku()
-    {
+    { 
         $booksList = Buku::paginate(10);
-        return view('admin.daftarbuku',compact('booksList'));
+        $penulis = Penulis::all();
+        $penerbit = Penerbit::all();
+        return view('admin.daftarbuku',compact('booksList','penulis','penerbit'));
+    }
+
+    public function filterBuku(Request $request)
+    {
+        $booksList = Buku::where(function($query) use($request){
+            return $request->id_penulis ? $query->from('penulis')->where('id',$request->id_penulis) : '';
+        })->where(function($query) use($request){
+            return $request->id_penerbit ? $query->from('penerbit')->where('id',$request->id_penerbit) : '';
+        })
+        ->with('penulis','penerbit')
+        ->get();
+
+        $selected_id = [];
+        $selected_id['id_penulis'] = $request->id_penulis;
+        $selected_id['id_penerbit'] = $request->id_penerbit;
+
+        return view('admin.daftarbuku',compact('booksList','selected_id'));
+
     }
 
     public function tambahbuku()
