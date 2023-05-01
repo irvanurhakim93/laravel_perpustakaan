@@ -7,7 +7,8 @@
     <title>Halaman Dokumen Buku</title>
 </head>
 <body>
-{{-- <img src="{{$data->gambar()}}" alt="" style="width: 150px; height:150px"> --}}
+    {{-- {{$data->gambar()}} --}}
+<img src="data:image/png;base64,<?php echo base64_encode(file_get_contents(base_path('public/images/books/'.$data->sampul))); ?>" alt="" style="width: 450px; height:450px">
 
 
 <br>
