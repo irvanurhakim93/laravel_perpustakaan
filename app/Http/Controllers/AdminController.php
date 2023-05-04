@@ -185,7 +185,8 @@ class AdminController extends Controller
     {
         $data = Buku::findOrFail($id);
         $pdf = PDF::loadView('admin.pdfbuku', compact('data'));
-        return $pdf->download('data_buku.pdf');        
+        // return $pdf->download('data_buku.pdf');        
+        return $pdf->download($data->nama . ' ' . '.pdf');        
     }
 
 public function generateExcel()
