@@ -109,7 +109,7 @@ class AdminController extends Controller
             $fotosampul = $request->file('cover');
             $namasampul = rand(1000, 9999) . $fotosampul->getClientOriginalName();
             $fotosampul->move('images/books', $namasampul);
-            $buku->cover = $namasampul;
+            $buku->sampul = $namasampul;
         }
         $buku->created_at = Carbon::now();
         $buku->updated_at = Carbon::now();
@@ -136,7 +136,8 @@ class AdminController extends Controller
             'pilihpenerbit',
             'pilihkategori',
             'sinopsis',
-            'cover',
+            'cover
+            ',
             'updated_at'
         ]);
 
